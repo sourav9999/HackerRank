@@ -6,41 +6,42 @@ Given two strings, print "Anagrams" if they are anagrams, print "Not Anagrams" i
 This exercise will verify that you are able to sort the characters of a string, or compare frequencies of characters.
 */
 
-import java.io.*;
-import java.util.*;
+import java.util.Scanner;
 
+public class Solution {
 
-public class JavaAnagrams {
+static boolean isAnagram(String a, String b) {
+        // Complete the function
+        if (a.length() != b.length()) {
+            return false;
+        } else {
+            // sort the strings and see if they are equal to be considered an Anagram
+            String A = a.toLowerCase();
+            String B = b.toLowerCase();
 
-   static boolean isAnagram(String A, String B) {
-      //Complete the function
-       if(A.length() != B.length()){
-           return false;
-       }else{
-		   // sort the strings and see if they are equal to be considered an Anagram
-           char a[] = A.toLowerCase().toCharArray();
-           char b[] = B.toLowerCase().toCharArray();
-           Arrays.sort(a);
-           Arrays.sort(b);
-           String sortedA = String.valueOf(a);
-           String sortedB = String.valueOf(b);
-           if(sortedA.equals(sortedB)){
-               return true;
-           }
-           
-        
-       }
-       return false;
-   
-   }
-    public static void main(String[] args) {
-        
-        Scanner sc=new Scanner(System.in);
-        String A=sc.next();
-        String B=sc.next();
-        boolean ret=isAnagram(A,B);
-        if(ret)System.out.println("Anagrams");
-        else System.out.println("Not Anagrams");
-        
+            String sortedA = String.valueOf(sort(A));
+            String sortedB = String.valueOf(sort(B));
+
+            if (sortedA.equals(sortedB)) {
+                return true;
+            }
+        }
+        return false;
     }
-}
+
+    private static char[] sort(String X) {
+        char temp;
+        char[] x = X.toCharArray();
+        for (int i = 0; i < x.length - 1; i++) {
+            for (int j = 0; j < x.length - i - 1; j++) {
+                if (x[j] > x[j+1]) {
+                    temp = x[j];
+                    x[j] = x[j+1];
+                    x[j+1] = temp;
+                }
+            }
+        }
+        return x;
+    }
+
+  public static void main(String[] args) {
