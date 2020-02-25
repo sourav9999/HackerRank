@@ -41,17 +41,21 @@ public class Solution {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         String s = scan.nextLine();
-
+        
         // Write your code here.
-        String[] arr = s.trim().split("[ !,?._'@]+");
-        List<String> stringList = new ArrayList<String>(Arrays.asList(arr));
+        if (!scan.hasNext()) {
+            System.out.println(0);
+        } else {
+            String s = scan.nextLine();
+            // Write your code here.
+            String[] arr = s.trim().split("[ !,?._'@]+");
+            List<String> stringList = new ArrayList<String>(Arrays.asList(arr));
+            System.out.println(stringList.size());
 
-        System.out.println(stringList.size());
-
-        stringList.forEach( listElement -> {
-            System.out.println(listElement);
-        });
-
-        scan.close();
+            stringList.forEach(listElement -> {
+                System.out.println(listElement);
+            });
+            scan.close();
+        }
     }
 }
