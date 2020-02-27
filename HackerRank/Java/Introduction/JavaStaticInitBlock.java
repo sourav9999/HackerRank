@@ -23,7 +23,6 @@ Output Format
 
 If both values are greater than zero, then the main method must output the area of the parallelogram. 
 Otherwise, print "java.lang.Exception: Breadth and height must be positive" without quotes.
-
 */
 
 
