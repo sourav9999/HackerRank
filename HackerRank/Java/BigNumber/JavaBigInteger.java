@@ -12,22 +12,20 @@ Output Format
 
 Output two lines. The first line should contain a+b, and the second line should contain a×b. Don't print any leading zeros.
 */
+
 import java.io.*;
 import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
+import java.math.BigInteger;
 
-public class BigInteger {
+public class Solution {
 
     public static void main(String[] args) {
         /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
         Scanner sc = new Scanner(System.in);
-        String numOne = sc.nextLine();
-        String numTwo = sc.nextLine();
-        BigInteger bigNumOne = new BigInteger(numOne);
-        BigInteger bigNumTwo = new BigInteger(numTwo);
-        System.out.println(bigNumOne.add(bigNumTwo));
-        System.out.println(bigNumOne.multiply(bigNumTwo));
+        BigInteger b1 = sc.nextBigInteger();
+        BigInteger b2 = sc.nextBigInteger();
+
+        System.out.println(b1.add(b2));
+        System.out.println(b1.multiply(b2));
     }
 }
