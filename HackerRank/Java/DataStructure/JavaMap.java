@@ -47,26 +47,28 @@ harry=12299933
 
 import java.util.*;
 import java.io.*;
+import java.lang.*;
 
-class JavaMap{
-   public static void main(String []argh)
-   {
-      Map database = new HashMap();
-      Scanner in = new Scanner(System.in);
-      int n=in.nextInt();
-      in.nextLine();
-      for(int i=0;i<n;i++)
-      {
-         String name=in.nextLine();
-         int phone=in.nextInt();
-         database.put(name,""+phone);
+class Solution{
+	public static void main(String []argh)
+	{
+		Scanner in = new Scanner(System.in);
+        Map<String, Integer> phoneBook = new HashMap<String, Integer>();
+		  int n = in.nextInt();
+        in.nextLine();
+		  for(int i = 0; i < n ; i++)
+		  {
+			String name = in.nextLine();
+			int phone = in.nextInt();
+         phoneBook.put(name,phone);
          in.nextLine();
-      }
-      while(in.hasNext())
-      {
-         String s=in.nextLine();
-         String phone = (String)database.get(s); 
-         System.out.println(phone==null?"Not found":s+"="+phone);
-      }
-   }
+    	  }		
+
+		while(in.hasNext())
+		{
+			String s = in.nextLine();
+         String phone = String.valueOf(phoneBook.get(s)); 
+         System.out.println(phone == "null" ? "Not found" : s + "=" + phone);
+		}
+	}
 }
