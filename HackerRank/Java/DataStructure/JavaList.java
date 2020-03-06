@@ -1,3 +1,18 @@
+/*
+Sample input
+5
+12 0 1 78 12
+2
+Insert
+5 23
+Delete
+0
+
+Output
+0 1 78 12 23
+
+*/
+
 import java.io.*;
 import java.util.*;
 
