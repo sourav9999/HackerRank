@@ -39,53 +39,37 @@ false
 true
 */
 
-import java.io.*;
 import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
-import java.util.ArrayList;
-
-public class JavaStack {
-
-    static boolean isBallanced(String paranString)
-    {
-        List<String>closingParan =  Arrays.asList("}", ")", "]");
-        boolean isBallanced = true;
-        ArrayList<String> stack = new ArrayList<String>();
-        if(paranString.length()>0){
-            for(int i = 0;i<paranString.length();i++){
-                String paran = paranString.substring(i,i+1); 
-                if(stack.size() == 0 && closingParan.contains(paran)){
-                    isBallanced=false;
-                    break;
-                }else{
-                    if(paran.equals("{") || paran.equals("(") || paran.equals("[")){
-                        stack.add(paran);
-                    }else{
-                        String stackParan = stack.get(stack.size()-1);
-                        if((stackParan.equals("{") && paran.equals("}")) || (stackParan.equals("(") && paran.equals(")") || (stackParan.equals("[") && paran.equals("]")))) {
-                            stack.remove(stack.size()-1);
-                        }else{
-                            isBallanced = false;
-                            break;
-                        }
-                    }
-                }
-            }  
-        }
-        if(stack.size()>0) isBallanced = false;
-        return isBallanced;    
-    }
-    public static void main(String[] args) {
+class Solution{
+	
+	public static void main(String []argh)
+	{
         Scanner sc = new Scanner(System.in);
-        while(sc.hasNext()){
-            if(isBallanced(sc.nextLine())){
-                System.out.println("true");
-            }else{
-                System.out.println("false");
-            }       
+        Stack<Character> characterStack = new Stack<>();
+        while (sc.hasNextLine()) {
+            String input = sc.nextLine();
+            char []c = input.toCharArray();
+
+            for (int i = 0; i < c.length; i++) {
+                if (!characterStack.isEmpty()) {
+                    switch(input.charAt(i)) {
+                        case '}' : if (characterStack.peek() == '{') {
+                            characterStack.pop();
+                        } break;
+                        case ']' : if (characterStack.peek() == '[') {
+                            characterStack.pop();
+                        } break;
+                        case ')' : if (characterStack.peek() == '(') {
+                            characterStack.pop();
+                        } break;
+                        default: characterStack.push(input.charAt(i));
+                    }
+                } else {
+                characterStack.push(input.charAt(i));
+                }    
+            }
+        System.out.println(characterStack.isEmpty() ? "true" : "false");
+        characterStack.clear();
         }
-        
     }
 }
