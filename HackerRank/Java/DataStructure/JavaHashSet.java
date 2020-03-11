@@ -49,21 +49,33 @@ import java.text.*;
 import java.math.*;
 import java.util.regex.*;
 
-public class JavaHashSet 
-{
+public class Solution {
 
-    public static void main(String[] args) {
-
-        HashSet  hs = new HashSet ();
-        int count = 0;
-        Scanner sc = new Scanner(System.in);
-        int numCases = Integer.parseInt(sc.nextLine());
-        for(int i = 0;i < numCases;i++){
-            if(hs.add(sc.nextLine())){
-                count++;
-            }
-            System.out.println(count);
-        }
+ public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        int t = s.nextInt();
+        String [] pair_left = new String[t];
+        String [] pair_right = new String[t];
         
-    }
+        for (int i = 0; i < t; i++) {
+            pair_left[i] = s.next();
+            pair_right[i] = s.next();
+        }
+
+    //Write your code here
+        Set<String> countNames = new HashSet<String>();
+        int count = 0;
+    
+        for (int j = 0; j < t; j++) {
+            if(countNames.contains(pair_left[j] + " " + pair_right[j])){
+                System.out.println(count);  
+            }
+            else
+            {
+                countNames.add(pair_left[j] + " " + pair_right[j]);
+                count++;
+                System.out.println(count);
+            }
+        }
+   }
 }
