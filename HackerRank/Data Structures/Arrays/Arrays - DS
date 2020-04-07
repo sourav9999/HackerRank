@@ -1,3 +1,15 @@
+/*
+Problem staement:- https://www.hackerrank.com/challenges/arrays-ds/problem
+
+Sample Input 1  
+4
+1 4 3 2
+
+
+Sample Output 1
+2 3 4 1
+*/
+
 import java.io.*;
 import java.math.*;
 import java.security.*;
