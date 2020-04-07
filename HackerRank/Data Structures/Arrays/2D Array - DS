@@ -1,3 +1,36 @@
+/*
+Problem Statement:- https://www.hackerrank.com/challenges/2d-array/problem
+
+
+Given a 6 * 6 2D Array, : 
+
+1 1 1 0 0 0
+0 1 0 0 0 0
+1 1 1 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+0 0 0 0 0 0
+
+
+We define an hourglass in A to be a subset of values with indices falling in this pattern in arr's graphical representation:
+a b c
+  d
+e f g
+
+Sample Input
+1 1 1 0 0 0
+0 1 0 0 0 0
+1 1 1 0 0 0
+0 0 2 4 4 0
+0 0 0 2 0 0
+0 0 1 2 4 0
+
+Sample Output
+19
+
+*/
+
+
 import java.io.*;
 import java.math.*;
 import java.security.*;
