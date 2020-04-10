@@ -31,8 +31,6 @@ public class Solution {
             this.head = null;
             this.tail = null;
         }
-
-      
     }
 
     public static void printSinglyLinkedList(SinglyLinkedListNode node, String sep, BufferedWriter bufferedWriter) throws IOException {
